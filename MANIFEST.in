@@ -1,0 +1,7 @@
+include README.md LICENSE CHANGELOG.md CONTRIBUTING.md RELEASING.md
+recursive-include docs *.md *.json *.txt
+recursive-include examples *.circle *.json
+recursive-include tests *.py *.json *.csv
+recursive-include tools *.py
+recursive-include src/circle_lang/data *.json *.html
+recursive-include .github *.yml

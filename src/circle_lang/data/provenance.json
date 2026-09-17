@@ -1,0 +1,110 @@
+{
+  "schema": "circle.provenance.v1",
+  "files": [
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/src/compiler_m77.py",
+      "source_sha256": "1b6cec6b35450ca33e20b045da077277966b1f20897248abd005cc9eaf3e640e",
+      "destination": "_research/compiler_m77.py",
+      "sha256": "1b6cec6b35450ca33e20b045da077277966b1f20897248abd005cc9eaf3e640e",
+      "modifications": "Relative imports only."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/src/compiler_m79.py",
+      "source_sha256": "4125e00e28689bdd57677864a35aee6b8128b9dac431584740902e2ae07d3dd8",
+      "destination": "_research/compiler_m79.py",
+      "sha256": "d88a32ce3dd420f3b27de959962aa4bff183a019f7fad3fd6b38be129634f958",
+      "modifications": "Relative imports only."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/src/compiler_m710.py",
+      "source_sha256": "a9b6437a197fc59f0ee814c26c87a953de78060d4ca070e12ec4aff2d5839186",
+      "destination": "_research/compiler_m710.py",
+      "sha256": "7c8d6f6050f2abc53886fef844cf279ebeaa5cf8125ab811a73405556c958b35",
+      "modifications": "Relative imports only."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/src/navigation_r1.py",
+      "source_sha256": "29008fb933abeee417e02566959df814208559830090686a32bdfc7d61d09dfc",
+      "destination": "_research/navigation_r1.py",
+      "sha256": "29008fb933abeee417e02566959df814208559830090686a32bdfc7d61d09dfc",
+      "modifications": "Relative imports only."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/src/benchmark_m718.py",
+      "source_sha256": "7697ffb5afc61da661a92c19c1aac98bb2ad7774cc2da79fd3a1322ac7401c79",
+      "destination": "_research/benchmark_m718.py",
+      "sha256": "977d54ac7e92fd87aaa403a6e1b2e40174e53f7c304c41b69077817f82d71bb8",
+      "modifications": "Relative imports; optional observer receiving copies at initial state and each completed tick."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/src/runtime_m7.py",
+      "source_sha256": "e41c1c87cca533a8417055007a0782ac3ffbaef32948dcfa6646e269b0e9142b",
+      "destination": "_research/runtime_m7.py",
+      "sha256": "a51ba5c00435d3692a98c957b4cd528997399e4ff414354741ba7b16571b1701",
+      "modifications": "Only constants used by the M7.18 benchmark extracted via AST; old runners omitted."
+    },
+    {
+      "source": "files/M6/lifecompiler_m6_3_blind_homeostasis_runtime_transfer/src/compiler_m62.py",
+      "source_sha256": "443d2cb646f44c4d9222f89a5817f4f233d760ef89654aef5963f8fd3c0558a3",
+      "destination": "_research/compiler_m62.py",
+      "sha256": "8935d2d4090317d05dd729987f97b417c5689ff226d72b5139d0a47abda49365",
+      "modifications": "Relative imports only."
+    },
+    {
+      "source": "files/M6/lifecompiler_m6_3_blind_homeostasis_runtime_transfer/src/bioir_m6.py",
+      "source_sha256": "c4ae575aba2b81e25e569b906038f075deea0035a907d4b60f94622793ea896f",
+      "destination": "_research/bioir_m6.py",
+      "sha256": "f0bfd5d1e42d922be665a9689b471c9e84bc4d4a56dd2d8e763ad3adfe5349ed",
+      "modifications": "Dataclasses retained; historical parser import and lowering function omitted."
+    },
+    {
+      "source": "files/M6/lifecompiler_m6_3_blind_homeostasis_runtime_transfer/src/runtime_m62.py",
+      "source_sha256": "338c0d9e799d164b0ae2035946442d426f78e439884990fc91b363d29343d824",
+      "destination": "_research/runtime_m62.py",
+      "sha256": "32f4b537a45e44d6c9751d64658673f3ab4f8ff9b7df3f684fd06a5a2d73cfd4",
+      "modifications": "Relative imports; optional observer receiving copies at initial state and each completed tick."
+    },
+    {
+      "source": "files/M8/lifecompiler_m8_6_fresh_world_blind_physicell_transfer/run_m86_blind.py",
+      "source_sha256": "4f8988839c4b076b7fe8f9582158c24159e3b4832a21bd0b2e46d51ae88b2ef8",
+      "destination": "_research/navigation.py",
+      "sha256": "7b1e786a1c1a2cec0032b83a59683bba4c0603d866153325f58396bddc191060",
+      "modifications": "AST extraction of abstract backend constants/functions only; optional copied trajectory observer. No PhysiCell execution code."
+    },
+    {
+      "source": "files/M9/lifecompiler_m9_12_fresh_geometry_blind_physicell/src/frozen_abstract_runtime.py",
+      "source_sha256": "352d447f54477ffb8c0324f14f16d3bac60cb8ea8c65a927949a63ab0f058b59",
+      "destination": "_research/cohesion.py",
+      "sha256": "55d4a882c6bfaf49df2ca476501d0e7b7fb8bfef2a270aa84aa6cb7965774b18",
+      "modifications": "Numba decorators and standalone CLI removed; numerical loops unchanged, pure Python/NumPy; optional copied trajectory observer."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/blind_worlds.json",
+      "source_sha256": "fc901b23f33e472139dd9bd22ced89c7c3d9eace080dedb4151783d351f6e900",
+      "destination": "data/composition_worlds.json",
+      "sha256": "fc901b23f33e472139dd9bd22ced89c7c3d9eace080dedb4151783d351f6e900",
+      "modifications": "Unmodified observed research scenario manifest; not new blind evidence."
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/blind_disturbances.json",
+      "source_sha256": "8784a864dad08542b92be3b95ed18ad8ff248c031dc777add5a3cb643f104d7b",
+      "destination": "data/composition_disturbances.json",
+      "sha256": "8784a864dad08542b92be3b95ed18ad8ff248c031dc777add5a3cb643f104d7b",
+      "modifications": "Unmodified observed research scenario manifest; not new blind evidence."
+    },
+    {
+      "source": "files/M8/lifecompiler_m8_6_fresh_world_blind_physicell_transfer/spec/m86_blind_worlds.json",
+      "source_sha256": "974ff60199af287e6a05103431334317f96672a58b18fa86dc2316d247e16a97",
+      "destination": "data/navigation_worlds.json",
+      "sha256": "974ff60199af287e6a05103431334317f96672a58b18fa86dc2316d247e16a97",
+      "modifications": "Unmodified observed research scenario manifest; not new blind evidence."
+    }
+  ],
+  "semantic_references": [
+    {
+      "source": "files/M1-M3/lifecompiler_m0_5/src/lifecompiler/runtime.py",
+      "source_sha256": "78258ff1409d911fca5fbf64bb937aac9bec6ecd227fcfd506e4405413339b23",
+      "use": "Logical synchronous fixed-point and one-time phenotype update semantics reimplemented in runtime.py; new front end uses Circle syntax."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "purpose": "Archived numerical regression fixtures, not new experimental evidence",
+  "sources": [
+    {
+      "source": "files/M8/lifecompiler_m8_6_fresh_world_blind_physicell_transfer/results/m86_backend_A_raw.json",
+      "sha256": "1bf3f30983fe37b00b8fac8846a254883dfee880bd0571e05b5fe168c0ae7d49"
+    },
+    {
+      "source": "files/M7/lifecompiler_m7_18_prospective_blind_certification/results/m718_holdout_raw.json",
+      "sha256": "515df3549e811134f2a7398e80fde8b624619dcb80dade92be3b5ee340054f5b"
+    },
+    {
+      "source": "files/M6/lifecompiler_m6_3_blind_homeostasis_runtime_transfer/blind_runtime_contexts.json",
+      "sha256": "2a5d9c7c8de7cfcca8e17992f89edb70dd0160ba01b148e90ec6bdb853c326a6"
+    },
+    {
+      "source": "files/M6/lifecompiler_m6_3_blind_homeostasis_runtime_transfer/results/raw/recompiled_v1__blind_hctx_01.json",
+      "sha256": "b4298416f91fb2f49132591cfa58211d20fd2a24844a49180a065f3cd08a1e9f"
+    },
+    {
+      "source": "files/M6/lifecompiler_m6_3_blind_homeostasis_runtime_transfer/results/raw/recompiled_v1__blind_hctx_04.json",
+      "sha256": "b91d29eb5a59d5fbc02e4084bde27ab012b63f784154174635972b72735665c4"
+    },
+    {
+      "source": "files/M9/lifecompiler_m9_12_fresh_geometry_blind_physicell/results/reference_A/m912_backend_A_raw.json",
+      "sha256": "f5fe4f01654a6a379ca432ed15afa1ed789a5180fad4de61eb00f25c01826e49"
+    },
+    {
+      "source": "files/M9/lifecompiler_m9_12_fresh_geometry_blind_physicell/spec/geometries/m912_blind_01.csv",
+      "sha256": "c4a78f4807795e30f04cffba58ab905b65882a9b5044953c49976f6a056947c9"
+    }
+  ]
+}

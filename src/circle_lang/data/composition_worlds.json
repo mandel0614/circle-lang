@@ -1,0 +1,128 @@
+{
+  "schema": "lifecompiler.m7_18.worlds.v1",
+  "generator_seed": 2026082318,
+  "screening": "none; every generated world retained",
+  "world_count": 8,
+  "worlds": [
+    {
+      "id": "blind_cert_w01",
+      "stratum": "mid_corridor_narrow",
+      "A": [
+        94.5623,
+        77.8121,
+        62.6742
+      ],
+      "B": [
+        52.1064,
+        61.8286,
+        14.0414
+      ],
+      "noise": 2.3651
+    },
+    {
+      "id": "blind_cert_w02",
+      "stratum": "mid_corridor_narrow",
+      "A": [
+        92.5871,
+        52.7287,
+        61.8839
+      ],
+      "B": [
+        52.4965,
+        48.5459,
+        12.5863
+      ],
+      "noise": 2.6792
+    },
+    {
+      "id": "blind_cert_w03",
+      "stratum": "late_persistent_broad",
+      "A": [
+        92.3497,
+        54.7941,
+        64.3884
+      ],
+      "B": [
+        76.0635,
+        51.0577,
+        20.5148
+      ],
+      "noise": 2.5647
+    },
+    {
+      "id": "blind_cert_w04",
+      "stratum": "late_persistent_broad",
+      "A": [
+        89.7609,
+        53.3187,
+        65.2347
+      ],
+      "B": [
+        71.1924,
+        53.6219,
+        19.3125
+      ],
+      "noise": 2.5389
+    },
+    {
+      "id": "blind_cert_w05",
+      "stratum": "lateral_detour",
+      "A": [
+        94.6587,
+        72.4712,
+        62.1152
+      ],
+      "B": [
+        59.7591,
+        41.4646,
+        14.7133
+      ],
+      "noise": 2.2993
+    },
+    {
+      "id": "blind_cert_w06",
+      "stratum": "lateral_detour",
+      "A": [
+        94.7081,
+        53.3188,
+        52.2676
+      ],
+      "B": [
+        61.7324,
+        66.203,
+        12.7558
+      ],
+      "noise": 2.6588
+    },
+    {
+      "id": "blind_cert_w07",
+      "stratum": "long_range_tight_target",
+      "A": [
+        94.285,
+        53.9172,
+        44.6996
+      ],
+      "B": [
+        61.0491,
+        44.9073,
+        16.2596
+      ],
+      "noise": 3.1005
+    },
+    {
+      "id": "blind_cert_w08",
+      "stratum": "long_range_tight_target",
+      "A": [
+        94.6191,
+        35.1164,
+        44.9595
+      ],
+      "B": [
+        56.7751,
+        35.3794,
+        16.1171
+      ],
+      "noise": 3.0673
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "version": "0.1.0rc1",
+  "date": "2026-09-16",
+  "status": "local_candidate_not_publicly_released",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "tests": {
+    "checkout": {
+      "methods": 26,
+      "passed": true
+    },
+    "installed_wheel_outside_checkout": {
+      "methods": 26,
+      "passed": true
+    },
+    "unpacked_source_distribution": {
+      "methods": 26,
+      "passed": true
+    }
+  },
+  "archived_regression": {
+    "navigation_runs": 12,
+    "composition_runs": 48,
+    "homeostasis_runs_compared_via_scenario_means": 600,
+    "cohesion_runs": 2,
+    "total_runs": 662,
+    "new_blind_evidence": false
+  },
+  "example_results": [
+    {
+      "example": "hello",
+      "run_count": 1,
+      "contract_pass_count": 1,
+      "all_contracts_pass": true,
+      "contract_scope": "each_run"
+    },
+    {
+      "example": "navigation",
+      "run_count": 5,
+      "contract_pass_count": 5,
+      "all_contracts_pass": true,
+      "contract_scope": "each_run"
+    },
+    {
+      "example": "homeostasis",
+      "run_count": 5,
+      "contract_pass_count": 5,
+      "all_contracts_pass": true,
+      "contract_scope": "each_run"
+    },
+    {
+      "example": "composition",
+      "run_count": 5,
+      "contract_pass_count": 5,
+      "all_contracts_pass": true,
+      "contract_scope": "each_run"
+    },
+    {
+      "example": "cohesion",
+      "run_count": 1,
+      "contract_pass_count": 1,
+      "all_contracts_pass": true,
+      "contract_scope": "each_run"
+    },
+    {
+      "example": "control",
+      "run_count": 1,
+      "contract_pass_count": 0,
+      "all_contracts_pass": false,
+      "contract_scope": "each_run"
+    }
+  ],
+  "installed_wheel_cli_smoke": {
+    "run_count": 3,
+    "contract_pass_count": 3,
+    "all_contracts_pass": true,
+    "contract_scope": "each_run"
+  },
+  "implementation_sha256": "2bb9642ed388e0ba4bc1bbeaaa2cff85adcacc0427b7e2844c406ff8684ae26b",
+  "package_audit": {
+    "unrelated_private_files_excluded": true,
+    "original_kernel_hashes_unchanged": true,
+    "credential_pattern_scan_matches": 0
+  },
+  "visual_check": {
+    "local_browser_review": true,
+    "end_tick_slider_checked": [
+      "composition",
+      "homeostasis"
+    ],
+    "gallery_reviewed": true
+  },
+  "limitations": [
+    "Only abstract CPU backend",
+    "Finite frozen behavior profiles",
+    "No prospective certification",
+    "Remote CI not executed",
+    "Separate validation environment reuses installed NumPy",
+    "GitHub owner and manuscript author metadata pending"
+  ],
+  "project": "circle-lang",
+  "license": "MIT",
+  "release_metadata_update": {
+    "date": "2026-09-17",
+    "project_and_distribution": "circle-lang",
+    "license": "MIT",
+    "wheel_license_metadata_and_text_verified": true,
+    "source_archive_license_verified": true,
+    "implementation_fingerprint_unchanged": true,
+    "new_virtual_environment_installation": "passed",
+    "installed_hello_cell_verification": "passed"
+  }
+}

@@ -1,0 +1,8 @@
+cell Navigator {
+  input attractant;
+  input hazard;
+  migrate toward attractant;
+  avoid hazard;
+  require target_occupancy >= 0.80;
+  require forbidden_entry_fraction <= 0.10;
+}

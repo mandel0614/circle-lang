@@ -1,0 +1,10 @@
+{
+  "scenario": "positive_pulse",
+  "context": {
+    "state_sensor_gain": 0.8,
+    "state_sensor_offset": 0.1,
+    "actuator_efficiency": 0.8,
+    "disturbance_multiplier": 1.1,
+    "noise_multiplier": 1.2
+  }
+}

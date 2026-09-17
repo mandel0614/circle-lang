@@ -1,0 +1,66 @@
+{
+  "schema": "lifecompiler.m7_18.disturbances.v1",
+  "generator_seed": 2026082319,
+  "screening": "none; every generated disturbance retained",
+  "disturbance_count": 6,
+  "disturbances": [
+    {
+      "id": "blind_cert_d01",
+      "family": "quadratic_ramp_reversal",
+      "start": 26,
+      "switch": 97,
+      "end": 179,
+      "positive_amplitude": 0.0107,
+      "negative_amplitude": 0.0091
+    },
+    {
+      "id": "blind_cert_d02",
+      "family": "pulse_packet_jitter",
+      "start": 24,
+      "end": 178,
+      "pulse_count": 6,
+      "width_min": 7,
+      "width_max": 13,
+      "amplitude_min": 0.0085,
+      "amplitude_max": 0.0127
+    },
+    {
+      "id": "blind_cert_d03",
+      "family": "biexponential_recovery",
+      "start": 28,
+      "end": 177,
+      "amplitude": 0.0125,
+      "tau_fast": 7.6769,
+      "tau_slow": 26.1903,
+      "sign": 1
+    },
+    {
+      "id": "blind_cert_d04",
+      "family": "ar1_colored_pressure",
+      "start": 24,
+      "end": 178,
+      "phi": 0.9099,
+      "sigma": 0.0027,
+      "clip": 0.0116
+    },
+    {
+      "id": "blind_cert_d05",
+      "family": "multifrequency_beat",
+      "start": 25,
+      "end": 179,
+      "amplitude": 0.0104,
+      "cycles1": 2.5458,
+      "cycles2": 3.8377
+    },
+    {
+      "id": "blind_cert_d06",
+      "family": "delayed_plateau_notch",
+      "start": 34,
+      "notch_start": 99,
+      "notch_end": 123,
+      "end": 176,
+      "plateau": 0.0097,
+      "notch": 0.0124
+    }
+  ]
+}

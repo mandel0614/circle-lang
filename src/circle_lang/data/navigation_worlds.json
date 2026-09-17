@@ -1,0 +1,279 @@
+{
+  "schema": "lifecompiler.m8_6.fresh_world_blind_navigation.v1",
+  "generator_seed": 2026082468,
+  "phenotype_screening": "none",
+  "geometry_only_validity": [
+    "B_at_target < 0.70",
+    "B_at_initial_center < 0.10"
+  ],
+  "domain": {
+    "x": [
+      0.0,
+      1.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "dimension": 2
+  },
+  "population": 64,
+  "horizon_ticks": 190,
+  "initial_position": {
+    "x_uniform": [
+      0.05,
+      0.18
+    ],
+    "y_uniform": [
+      0.43,
+      0.57
+    ]
+  },
+  "fields": {
+    "A": "unitless scalar Gaussian",
+    "B": "unitless scalar Gaussian"
+  },
+  "control_unit_displacement_per_tick": 0.01,
+  "target_radius": 0.16,
+  "forbidden_threshold": 0.7,
+  "run_success": {
+    "target_occupancy_min": 0.8,
+    "forbidden_entry_fraction_max": 0.1
+  },
+  "aggregate_success": {
+    "target_occupancy_min": 0.8,
+    "forbidden_entry_fraction_max": 0.1,
+    "task_pass_rate_min": 0.9,
+    "worst_world_task_pass_rate_min": 0.8
+  },
+  "worlds": [
+    {
+      "id": "m86_blind_01",
+      "stratum": "upper_detour",
+      "A": [
+        0.887481,
+        0.781386,
+        0.62417
+      ],
+      "B": [
+        0.657016,
+        0.678881,
+        0.110986
+      ],
+      "random_motion_rms_per_tick": 0.021225,
+      "geometry_audit": {
+        "B_at_target": 0.075587,
+        "B_at_initial_center": 2e-06
+      }
+    },
+    {
+      "id": "m86_blind_02",
+      "stratum": "upper_detour",
+      "A": [
+        0.902867,
+        0.772222,
+        0.612018
+      ],
+      "B": [
+        0.692987,
+        0.674912,
+        0.111751
+      ],
+      "random_motion_rms_per_tick": 0.023458,
+      "geometry_audit": {
+        "B_at_target": 0.117331,
+        "B_at_initial_center": 0.0
+      }
+    },
+    {
+      "id": "m86_blind_03",
+      "stratum": "upper_detour",
+      "A": [
+        0.876629,
+        0.656313,
+        0.599651
+      ],
+      "B": [
+        0.678699,
+        0.561534,
+        0.14475
+      ],
+      "random_motion_rms_per_tick": 0.025445,
+      "geometry_audit": {
+        "B_at_target": 0.316876,
+        "B_at_initial_center": 0.000465
+      }
+    },
+    {
+      "id": "m86_blind_04",
+      "stratum": "lower_detour",
+      "A": [
+        0.905293,
+        0.262104,
+        0.652563
+      ],
+      "B": [
+        0.606896,
+        0.427806,
+        0.111914
+      ],
+      "random_motion_rms_per_tick": 0.02225,
+      "geometry_audit": {
+        "B_at_target": 0.009554,
+        "B_at_initial_center": 5.2e-05
+      }
+    },
+    {
+      "id": "m86_blind_05",
+      "stratum": "lower_detour",
+      "A": [
+        0.89148,
+        0.337032,
+        0.658339
+      ],
+      "B": [
+        0.635702,
+        0.466717,
+        0.143424
+      ],
+      "random_motion_rms_per_tick": 0.024431,
+      "geometry_audit": {
+        "B_at_target": 0.135471,
+        "B_at_initial_center": 0.001337
+      }
+    },
+    {
+      "id": "m86_blind_06",
+      "stratum": "lower_detour",
+      "A": [
+        0.873674,
+        0.227442,
+        0.616171
+      ],
+      "B": [
+        0.649401,
+        0.386441,
+        0.109732
+      ],
+      "random_motion_rms_per_tick": 0.021001,
+      "geometry_audit": {
+        "B_at_target": 0.043353,
+        "B_at_initial_center": 4e-06
+      }
+    },
+    {
+      "id": "m86_blind_07",
+      "stratum": "near_target_offset",
+      "A": [
+        0.930009,
+        0.354711,
+        0.626705
+      ],
+      "B": [
+        0.749039,
+        0.293452,
+        0.120423
+      ],
+      "random_motion_rms_per_tick": 0.028367,
+      "geometry_audit": {
+        "B_at_target": 0.28406,
+        "B_at_initial_center": 0.0
+      }
+    },
+    {
+      "id": "m86_blind_08",
+      "stratum": "near_target_offset",
+      "A": [
+        0.933331,
+        0.466537,
+        0.585834
+      ],
+      "B": [
+        0.739373,
+        0.522823,
+        0.131655
+      ],
+      "random_motion_rms_per_tick": 0.027807,
+      "geometry_audit": {
+        "B_at_target": 0.308324,
+        "B_at_initial_center": 1.3e-05
+      }
+    },
+    {
+      "id": "m86_blind_09",
+      "stratum": "near_target_offset",
+      "A": [
+        0.875366,
+        0.647179,
+        0.627511
+      ],
+      "B": [
+        0.733026,
+        0.561183,
+        0.112654
+      ],
+      "random_motion_rms_per_tick": 0.023694,
+      "geometry_audit": {
+        "B_at_target": 0.336351,
+        "B_at_initial_center": 0.0
+      }
+    },
+    {
+      "id": "m86_blind_10",
+      "stratum": "broad_midline",
+      "A": [
+        0.874514,
+        0.387177,
+        0.58555
+      ],
+      "B": [
+        0.663819,
+        0.357049,
+        0.177146
+      ],
+      "random_motion_rms_per_tick": 0.026752,
+      "geometry_audit": {
+        "B_at_target": 0.485887,
+        "B_at_initial_center": 0.005948
+      }
+    },
+    {
+      "id": "m86_blind_11",
+      "stratum": "broad_midline",
+      "A": [
+        0.912856,
+        0.420383,
+        0.610347
+      ],
+      "B": [
+        0.678361,
+        0.419764,
+        0.187834
+      ],
+      "random_motion_rms_per_tick": 0.028623,
+      "geometry_audit": {
+        "B_at_target": 0.458736,
+        "B_at_initial_center": 0.010163
+      }
+    },
+    {
+      "id": "m86_blind_12",
+      "stratum": "broad_midline",
+      "A": [
+        0.888096,
+        0.526326,
+        0.624927
+      ],
+      "B": [
+        0.620343,
+        0.534289,
+        0.161284
+      ],
+      "random_motion_rms_per_tick": 0.029968,
+      "geometry_audit": {
+        "B_at_target": 0.251769,
+        "B_at_initial_center": 0.007218
+      }
+    }
+  ]
+}

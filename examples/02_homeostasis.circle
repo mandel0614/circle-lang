@@ -1,0 +1,7 @@
+cell Homeostat {
+  state H in [0, 1];
+  maintain H in [0.40, 0.60];
+  require band_occupancy >= 0.80;
+  require unsafe_state_fraction <= 0.05;
+  require recovery_fraction >= 0.80;
+}

@@ -1,0 +1,116 @@
+Metadata-Version: 2.4
+Name: circle-lang
+Version: 0.1.0rc1
+Summary: Circle: a declarative language for executable virtual cell behaviors
+License-Expression: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<3,>=1.26
+Dynamic: license-file
+
+# circle-lang
+
+**Circle: a declarative language for virtual cell programming.**
+
+Write a behavioral specification, compile it into versioned BioIR, execute it on an abstract CPU runtime, and inspect the resulting cell states, trajectories, and contract checks.
+
+**Status: 0.1.0rc1 · research preview · MIT licensed.**
+The project and Python distribution are named `circle-lang`. The language is Circle, the Python module is `circle_lang`, and the executable is `circle`. This candidate is available locally; the public GitHub repository and package-index release have not yet been published.
+
+```circle
+cell Explorer {
+  input A;
+  input B;
+  state X;
+  when A is HIGH and B is LOW { activate X; }
+  when X is ACTIVE { increase motility; }
+  require motility >= 2;
+}
+```
+
+With `A=HIGH` and `B=LOW`, the logical state reaches `X=ACTIVE` and motility becomes `2`. This example changes an abstract phenotype variable; the navigation example below executes spatial movement.
+
+## Install from this directory
+
+Python 3.10 or later and NumPy are required. No GPU, web service, or PhysiCell installation is needed.
+
+```bash
+python3 -m venv .venv
+# macOS / Linux
+source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install .
+circle --version
+```
+
+## Your first execution
+
+```bash
+circle check examples/00_hello_cell.circle
+circle compile examples/00_hello_cell.circle -o runs/explorer.bioir.json
+circle verify runs/explorer.bioir.json --config examples/00_signals.json \
+  -o runs/explorer.json --html runs/explorer.html
+```
+
+Open `runs/explorer.html` in a browser. The JSON receipt records the actual metrics, seeds, resolved configuration, code provenance, and contract results. HTML reports replay recorded states and require no network connection.
+
+## From a state rule to a moving population
+
+```circle
+cell Navigator {
+  input attractant;
+  input hazard;
+  migrate toward attractant;
+  avoid hazard;
+  require target_occupancy >= 0.80;
+  require forbidden_entry_fraction <= 0.10;
+}
+```
+
+```bash
+circle run examples/01_navigation.circle --seeds 0:5 \
+  -o runs/navigation.json --html runs/navigation.html
+```
+
+The compiler selects the frozen R1 navigation kernel for these two behaviors. The runtime simulates 64 cells for 190 ticks. `0:5` means seeds 0 through 4. The HTML trace shows the first seed; all five sets of metrics appear in the receipt. Outcomes depend on the environment and seed. Compilation does not guarantee a passing phenotype.
+
+## Implemented profiles
+
+| Profile | Source behavior | Execution | Research lineage |
+|---|---|---|---|
+| Logic | `when`, `activate`, `increase`, etc. | One abstract logical cell, synchronous fixed point | M0.5 semantics |
+| Navigation | `migrate toward` + `avoid` | 64 cells, 190 ticks, normalized 2D domain | M8.6 abstract R1 |
+| Homeostasis | `maintain` | 64 independent continuous states, 200 ticks, calibrated lowering | M6.3 |
+| Composition | Navigation + homeostasis + `budget 0.75` | 64 cells, 200 ticks, shared per-cell resource allocation | M7.18 frozen v3 |
+| Cohesion | `cohere` | 64 interacting cells, 220 ticks | M9.12 frozen M9.6 kernel |
+
+Circle 0.1 is a finite-profile language backed by existing research kernels. It does not synthesize arbitrary biological algorithms. New syntax, unsupported behavior combinations, and unsupported composition parameters produce errors. The syntax unification is new engineering work; it must not be retroactively described as the software used to generate all historical experiments.
+
+## Learn and verify
+
+- [Tutorials](docs/tutorials.md): five executable programs, Python API, and scenario binding.
+- [Language reference](docs/language.md): grammar, symbols, contracts, and diagnostic behavior.
+- [Execution semantics](docs/semantics.md): formulas, metrics, sampling, fixed parameters, and limitations.
+- [Architecture and provenance](docs/architecture.md): source → BioIR → runtime → evidence.
+- [Validation](docs/validation.md): regression fixtures and reproducibility limits.
+- [Release procedure](RELEASING.md): local candidate → public repository → tagged release.
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+`circle run` returns success when execution completes, even if contracts fail. `circle verify` returns 0 when every run passes every specified contract, 1 for an empirical contract failure, and 2 for invalid input or an execution error. A program with no contracts can run but cannot be verified. No command issues a certificate.
+
+## Research scope
+
+The supported scales are intracellular abstract state, cell movement, and multicellular interaction. There is no molecular mechanism, experimental biological validation, genome design, or laboratory execution in this release. The original research includes PhysiCell transfer experiments; Circle 0.1 ships only the abstract CPU adapters. Passing this package's tests is a software regression result, not a repeat of the full M0–M10 study or a new blind study.
+
+The release structure borrows the installation/tutorial/testing/contribution pattern of [Triton](https://github.com/triton-lang/triton). No Triton code is included, and there is no affiliation or claim of comparable language maturity.
+
+## License and citation
+
+Licensed under the [MIT License](LICENSE). The manuscript authors, permanent repository URL, and citation metadata will be added when confirmed; DOI and arXiv identifiers will be added when available.

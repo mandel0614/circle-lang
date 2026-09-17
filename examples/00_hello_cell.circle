@@ -1,0 +1,9 @@
+# A signal-driven logical cell. See 00_signals.json.
+cell Explorer {
+  input A;
+  input B;
+  state X;
+  when A is HIGH and B is LOW { activate X; }
+  when X is ACTIVE { increase motility; }
+  require motility >= 2;
+}

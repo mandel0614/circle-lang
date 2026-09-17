@@ -1,0 +1,6 @@
+cell CohesiveColony {
+  cohere;
+  require giant_component_fraction >= 0.85;
+  require radius_of_gyration <= 0.18;
+  require overcrowding_fraction <= 0.10;
+}

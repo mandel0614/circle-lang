@@ -1,0 +1,2 @@
+[console_scripts]
+circle = circle_lang.cli:main

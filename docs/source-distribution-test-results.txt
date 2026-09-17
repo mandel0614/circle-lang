@@ -1,0 +1,31 @@
+test_cohesion_frozen_geometry_with_and_without_interaction (test_circle.ArchiveRegressionTests.test_cohesion_frozen_geometry_with_and_without_interaction) ... ok
+test_composition_all_48_pairs (test_circle.ArchiveRegressionTests.test_composition_all_48_pairs) ... ok
+test_homeostasis_two_contexts_six_scenarios_50_seeds (test_circle.ArchiveRegressionTests.test_homeostasis_two_contexts_six_scenarios_50_seeds) ... ok
+test_navigation_all_twelve_worlds (test_circle.ArchiveRegressionTests.test_navigation_all_twelve_worlds) ... ok
+test_vendored_integrity (test_circle.ArchiveRegressionTests.test_vendored_integrity) ... ok
+test_compile_then_verify_exit_codes (test_circle.CLITests.test_compile_then_verify_exit_codes) ... ok
+test_duplicate_json_keys (test_circle.CLITests.test_duplicate_json_keys) ... ok
+test_output_cannot_replace_input (test_circle.CLITests.test_output_cannot_replace_input) ... ok
+test_report_payload_is_inert (test_circle.CLITests.test_report_payload_is_inert) ... ok
+test_seed_range (test_circle.CLITests.test_seed_range) ... ok
+test_artifact_tampering (test_circle.LanguageTests.test_artifact_tampering) ... ok
+test_invalid_sources (test_circle.LanguageTests.test_invalid_sources) ... ok
+test_portable_roundtrip (test_circle.LanguageTests.test_portable_roundtrip) ... ok
+test_profiles (test_circle.LanguageTests.test_profiles) ... ok
+test_token_location (test_circle.LanguageTests.test_token_location) ... ok
+test_absent_contract_is_not_pass (test_circle.RuntimeTests.test_absent_contract_is_not_pass) ... ok
+test_bad_seeds (test_circle.RuntimeTests.test_bad_seeds) ... ok
+test_batch_matches_individual_composition (test_circle.RuntimeTests.test_batch_matches_individual_composition) ... ok
+test_conflict_and_oscillation (test_circle.RuntimeTests.test_conflict_and_oscillation) ... ok
+test_contracts_do_not_change_controller (test_circle.RuntimeTests.test_contracts_do_not_change_controller) ... ok
+test_field_bindings (test_circle.RuntimeTests.test_field_bindings) ... ok
+test_hello_and_signal_change (test_circle.RuntimeTests.test_hello_and_signal_change) ... ok
+test_interval_changes_execution (test_circle.RuntimeTests.test_interval_changes_execution) ... ok
+test_invalid_config (test_circle.RuntimeTests.test_invalid_config) ... ok
+test_replay_and_trace_observation (test_circle.RuntimeTests.test_replay_and_trace_observation) ... ok
+test_synchronous_and_once (test_circle.RuntimeTests.test_synchronous_and_once) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 4.988s
+
+OK

@@ -1,0 +1,134 @@
+[
+  {
+    "world": "m86_blind_01",
+    "stratum": "upper_detour",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.021100386089555626,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_02",
+    "stratum": "upper_detour",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.023251020849865866,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_03",
+    "stratum": "upper_detour",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.02530765983039427,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_04",
+    "stratum": "lower_detour",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.02207529031806564,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_05",
+    "stratum": "lower_detour",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.024241582053799737,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_06",
+    "stratum": "lower_detour",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.02094450967027907,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_07",
+    "stratum": "near_target_offset",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.028453712845257512,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_08",
+    "stratum": "near_target_offset",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.027994793658974303,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_09",
+    "stratum": "near_target_offset",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.023477047151655654,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_10",
+    "stratum": "broad_midline",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.02878789628298429,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_11",
+    "stratum": "broad_midline",
+    "seed": 29000,
+    "target_occupancy": 0.984375,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.03694936265519977,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  },
+  {
+    "world": "m86_blind_12",
+    "stratum": "broad_midline",
+    "seed": 29000,
+    "target_occupancy": 1.0,
+    "forbidden_entry_fraction": 0.0,
+    "mean_final_distance": 0.030195315881390322,
+    "task_pass": true,
+    "runtime_integrity": true,
+    "cell_count": 64
+  }
+]

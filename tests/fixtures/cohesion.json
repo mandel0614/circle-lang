@@ -1,0 +1,26 @@
+[
+  {
+    "scenario": "m912_blind_01",
+    "family": "quad_clusters",
+    "noise": 0.0035,
+    "seed": 35000,
+    "mode": "FROZEN_M96_CHAMPION",
+    "giant_component_fraction": 1.0,
+    "radius_of_gyration": 0.1464638121,
+    "overcrowding_fraction": 0.0,
+    "task_pass": true,
+    "runtime_integrity": true
+  },
+  {
+    "scenario": "m912_blind_01",
+    "family": "quad_clusters",
+    "noise": 0.0035,
+    "seed": 35000,
+    "mode": "NO_INTERACTION",
+    "giant_component_fraction": 1.0,
+    "radius_of_gyration": 0.2348165824,
+    "overcrowding_fraction": 0.0,
+    "task_pass": false,
+    "runtime_integrity": true
+  }
+]
