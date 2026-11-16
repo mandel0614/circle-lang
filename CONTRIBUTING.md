@@ -1,6 +1,10 @@
 # Contributing to Circle
 
-circle-lang is an MIT-licensed research preview. Public issues and pull requests will be available when the GitHub repository is published.
+circle-lang is an MIT-licensed research preview. Use the existing
+[GitHub repository](https://github.com/mandel0614/circle-lang) for issues and
+pull requests. Research rounds feed back into source, tests, examples and
+documented capability limits through the
+[research-driven development workflow](docs/research-development.md).
 
 For development, use Python 3.10+ and `python -m pip install -e .`, then run `python -m unittest discover -s tests -v`. The suite uses only the standard library and NumPy. Keep syntax, semantic validation, compilation, execution, and evidence reporting separate. Add behavioral tests for new supported programs and rejection tests for unsupported programs.
 

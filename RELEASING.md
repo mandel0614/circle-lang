@@ -1,6 +1,18 @@
 # Release procedure
 
-The current artifact is **0.1.0rc1, a local release candidate**. The intended sequence is Circle public release, manuscript finalization with the real repository URL and author metadata, then arXiv submission. This document does not authorize or claim any of those external actions occurred.
+The public source repository is [mandel0614/circle-lang](https://github.com/mandel0614/circle-lang).
+The distribution currently identifies itself as **0.1.0rc1**, a research preview.
+A source commit is not a package-index release or a claim of biological validation.
+
+## Per-round development
+
+After each research round, review its implementation lessons, validate relevant
+changes, update documentation/examples and synchronize the intended source with
+GitHub. Record the actual remote commit and CI status in the research provenance.
+See [Research-driven development](docs/research-development.md) and the
+[round-update template](docs/round-updates/TEMPLATE.md). Use ordinary commits for
+incremental work and tags/releases for checked milestones; no-change rounds do
+not require an artificial version bump.
 
 ## Candidate checks
 
@@ -17,13 +29,13 @@ python -m build
 
 The package also builds with `python -m pip wheel --no-deps . -w dist` and setuptools' PEP 517 backend. A source distribution should include examples, documentation, regression tests/fixtures, and the MIT LICENSE file. Wheels include executable modules, kernels, scenario manifests, provenance, and report template.
 
-## Before public publication
+## Before a tagged release
 
-- Confirm the GitHub owner/organization for the repository named `circle-lang`. The Python distribution is also named `circle-lang`; package-index availability has not been established.
+- Use the existing `mandel0614/circle-lang` repository. The Python distribution is also named `circle-lang`; a package-index publication is a separate step.
 - Include the MIT LICENSE file and the `MIT` SPDX expression in package metadata. The license was selected by the project owner on 2026-09-17.
-- Confirm manuscript author names for CITATION.cff and add the permanent repository URL; add DOI/arXiv identifiers only after they exist. The software copyright notice uses `circle-lang contributors`.
+- Keep citation metadata aligned with the confirmed author and repository; add DOI/arXiv identifiers only when known. The software copyright notice uses `circle-lang contributors`.
 - Change preview wording to match the actual release. Register package names only if desired and available; a GitHub source release does not require a package-index upload.
-- Initialize and inspect the standalone repository rooted at `circle/`, then publish that directory only. The parent workspace contains private research material and is not a release root.
+- Publish from this standalone Git checkout only. Preserve any separate source tree or distribution that earlier experiments bind by hash; it is not the mutable development checkout. Parent research workspaces are not release roots.
 - Run CI, inspect outcomes, create the version tag and release notes, and attach checked distributions and checksums. Pin the paper to a specific release/commit; obtain an archival DOI if the owner wants one.
 
 Do not transfer historical experimental pass counts to the newly packaged language without the appropriate qualification. The local regression report only demonstrates tested numerical consistency and software behavior. PhysiCell adapters and prospective certification remain separate future releases.

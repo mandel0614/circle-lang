@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Add a per-round research-to-software workflow and update template, including
+  compatibility checks, separate experiment/publication revisions, remote commit
+  verification and explicit no-change records.
+- Update release/contribution guidance for the existing public repository.
+- This documentation update does not change language semantics or publish a new
+  neural backend, package version or experiment dataset.
+
 ## 0.1.0rc1 — 2026-09-16 — local candidate
 
 - Introduce the Circle language with strict complete parsing, semantic checks, and versioned executable BioIR.

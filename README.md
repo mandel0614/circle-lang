@@ -23,7 +23,7 @@ virtual-cell execution
      │
      ▼
 phenotype verification
-````
+```
 
 > **Status:** `0.1.0rc1` · research preview · MIT licensed
 
@@ -469,6 +469,10 @@ See:
 
 ## Development
 
+Research rounds feed reusable changes into Circle source, tests, examples and
+documented capabilities. See [Research-driven development](docs/research-development.md)
+for the per-round workflow and revision tracking.
+
 Run the test suite:
 
 ```bash
@@ -539,5 +543,3 @@ A `CITATION.cff` file will be included in the tagged release.
 Circle is released under the [MIT License](LICENSE).
 
 Copyright © Circle contributors.
-
-````
