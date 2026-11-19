@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Expose failing regression output in CI annotations and complete every matrix
+  job so platform-specific failures can be diagnosed without changing tests.
 - Redesign the README around runnable programs, supported profiles, execution
   evidence and the language's development direction; correct outdated examples,
   repository structure and manuscript attribution.
@@ -9,7 +11,7 @@
   compatibility checks, separate experiment/publication revisions, remote commit
   verification and explicit no-change records.
 - Update release/contribution guidance for the existing public repository.
-- This documentation update does not change language semantics or publish a new
+- These documentation and CI updates do not change language semantics or publish a new
   neural backend, package version or experiment dataset.
 
 ## 0.1.0rc1 — 2026-09-16 — local candidate
