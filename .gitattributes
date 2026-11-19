@@ -1,0 +1,2 @@
+# Preserve provenance hashes and portable source bytes on every checkout.
+* text=auto eol=lf

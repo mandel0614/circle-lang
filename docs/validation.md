@@ -1,5 +1,8 @@
 # Validation of the 0.1.0rc1 local candidate
 
+For subsequent remote builds and the unresolved cohesion regression on Ubuntu
+and Windows, see [cross-platform validation status](ci-portability.md).
+
 The original local candidate validation passed **26 test methods**, including parameterized numerical comparisons for **662 archived simulation runs**. Tested environment: macOS arm64, Python 3.12.14, NumPy 2.3.5. The precise installed Python version is also recorded in generated receipts. See `local-test-results.txt` for the test log and `local-validation.json` for release checks.
 
 | Regression group | Coverage | Comparison |

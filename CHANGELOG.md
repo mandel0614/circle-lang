@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Preserve LF line endings on every platform so vendored source hashes remain
+  identical after Windows checkouts.
+- Document the observed cross-platform cohesion discrepancy while retaining
+  the frozen kernel, fixtures and regression assertions.
 - Expose failing regression output in CI annotations and complete every matrix
   job so platform-specific failures can be diagnosed without changing tests.
 - Redesign the README around runnable programs, supported profiles, execution
