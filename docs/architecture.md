@@ -23,7 +23,7 @@ Run receipts record source/artifact/configuration hashes, numerical provenance, 
 - One program per file; no module imports, functions, arbitrary arithmetic, loops, or mixed logical/continuous rules.
 - One logical cell or a fixed 64-cell abstract simulation. Population size and horizon are not user parameters.
 - Five tested profiles with explicit unsupported-combination errors.
-- No published package index entry or reserved distribution/repository name.
+- Installation is from the [source repository](https://github.com/mandel0614/circle-lang); a package-index release is a separate publishing step.
 - No PhysiCell launch/build integration and no prospective admission/certification command.
 - Cohesion uses centralized connected-component means and the transparent CPU reference loop.
 - Archives include more extensive research stages than this small executable release exposes. M10 is treated as a consolidation artifact; it does not override source experiment semantics.

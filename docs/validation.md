@@ -1,6 +1,6 @@
 # Validation of the 0.1.0rc1 local candidate
 
-The local suite passes **26 test methods**, including parameterized numerical comparisons for **662 archived simulation runs**. Tested environment: macOS arm64, Python 3.12.14, NumPy 2.3.5. The precise installed Python version is also recorded in generated receipts. See `local-test-results.txt` for the test log and `local-validation.json` for release checks.
+The original local candidate validation passed **26 test methods**, including parameterized numerical comparisons for **662 archived simulation runs**. Tested environment: macOS arm64, Python 3.12.14, NumPy 2.3.5. The precise installed Python version is also recorded in generated receipts. See `local-test-results.txt` for the test log and `local-validation.json` for release checks.
 
 | Regression group | Coverage | Comparison |
 |---|---|---|
@@ -15,7 +15,7 @@ Other tests cover complete parsing, syntax diagnostics, semantic rejection, fini
 
 Five demonstrations execute all source contracts successfully for their listed seeds. The explicit no-interaction cohesion control completes and fails the requested cohesion contract, demonstrating that failure is retained in the report. These are demonstrations, not a success-rate estimate. `tools/run_examples.py` regenerates all six receipts and reports with declared scenarios and seeds.
 
-The wheel is installed into a separate temporary virtual environment and exercised from outside the checkout. This environment reuses the preinstalled NumPy dependency through system site packages; it is an isolated package installation, not a fresh dependency download. The source archive is separately unpacked for installation and validation. CI is configured for Linux/macOS/Windows and Python 3.10/3.12/3.13, but those remote jobs have not run and are not claimed as passed.
+The wheel is installed into a separate temporary virtual environment and exercised from outside the checkout. This environment reuses the preinstalled NumPy dependency through system site packages; it is an isolated package installation, not a fresh dependency download. The source archive is separately unpacked for installation and validation. These are the original local validation records, not a record of subsequent remote builds. CI is configured for Linux/macOS/Windows and Python 3.10/3.12/3.13; consult [GitHub Actions](https://github.com/mandel0614/circle-lang/actions/workflows/ci.yml) for the result of a particular commit.
 
 The HTML report has been inspected in the local browser, with the time slider checked through the final tick. It displays recorded trajectories/state values, contract results, source code, and configuration; it does not rerun the model in JavaScript.
 

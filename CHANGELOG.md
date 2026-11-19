@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Redesign the README around runnable programs, supported profiles, execution
+  evidence and the language's development direction; correct outdated examples,
+  repository structure and manuscript attribution.
 - Add a per-round research-to-software workflow and update template, including
   compatibility checks, separate experiment/publication revisions, remote commit
   verification and explicit no-change records.
@@ -19,7 +22,8 @@
 - Add numerical archive regressions, invalid-input tests, deterministic execution checks, packaging, and CI configuration.
 - Document finite-profile boundaries, abstract-only execution, and absence of certification.
 
-GitHub owner, manuscript authors, public release, package-index upload, and manuscript integration remain pending.
+At this local-candidate stage, GitHub owner, manuscript authors, public release,
+package-index upload, and manuscript integration remained pending.
 
 ### Release preparation — 2026-09-17
 

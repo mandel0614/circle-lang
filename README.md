@@ -1,137 +1,93 @@
+<div align="center">
+
 # Circle
 
-**A declarative programming language for virtual cells.**
+**A research language for programmable biological systems.**
 
-Circle lets you describe **what a virtual cell should do**, rather than how a
-particular simulator should implement it.
+High-level behavior specifications → executable models → measurable outcomes.
 
-A Circle program is parsed into versioned **BioIR**, lowered to an executable
-runtime profile, executed on virtual-cell populations, and checked against
-phenotype-level contracts.
+[![Validation](https://github.com/mandel0614/circle-lang/actions/workflows/ci.yml/badge.svg)](https://github.com/mandel0614/circle-lang/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![MIT License](https://img.shields.io/badge/license-MIT-5B6D53)](LICENSE)
+
+[Get started](#get-started) · [Language guide](docs/language.md) · [Examples](examples) · [Development](#developing-circle)
+
+</div>
+
+Circle explores **life programming**: expressing intended behavior as a program,
+compiling it for an explicit biological model, and measuring what that model
+actually does.
+
+The current **0.1.0rc1 research preview** implements five abstract virtual-cell
+profiles. It provides a small declarative language, an inspectable intermediate
+representation, CPU simulation runtimes, and reports that connect source code
+to observed behavior. Neural and embodied execution are research directions for
+the evolving language.
+
+## A first program
+
+Declare the signals, specify a response, and state a measurable requirement:
 
 ```text
-Circle source
-     │
-     ▼
-   BioIR
-     │
-     ▼
-runtime lowering
-     │
-     ▼
-virtual-cell execution
-     │
-     ▼
-phenotype verification
-```
-
-> **Status:** `0.1.0rc1` · research preview · MIT licensed
-
-The project and Python distribution are named `circle-lang`.
-The language is **Circle**, the Python package is `circle_lang`, and the
-command-line executable is `circle`.
-
----
-
-## A first Circle program
-
-```circle
 cell Explorer {
   input A;
   input B;
-
   state X;
 
-  when A is HIGH and B is LOW {
-    activate X;
-  }
-
-  when X is ACTIVE {
-    increase motility;
-  }
+  when A is HIGH and B is LOW { activate X; }
+  when X is ACTIVE { increase motility; }
 
   require motility >= 2;
 }
 ```
 
-With `A=HIGH` and `B=LOW`, `X` becomes active and the abstract motility state
-reaches `2`.
+With `A = HIGH` and `B = LOW`, the logical runtime activates `X` and sets the
+abstract motility level to `2`. The `require` clause checks the result; it does
+not train or optimize a controller to make the requirement pass.
 
-Circle separates three concerns:
+## Get started
 
-* **behavior specification** — what cells should sense and do;
-* **runtime realization** — how those behaviors are executed;
-* **phenotype contracts** — what observable outcomes must hold.
-
-The example above operates on an abstract intracellular state. Circle also
-supports executable spatial and multicellular profiles.
-
----
-
-## Installation
-
-Circle requires **Python 3.10+** and **NumPy**.
-
-No GPU, web service, or external simulator is required for the default CPU
-runtime.
+Circle requires **Python 3.10+** and NumPy. Install from this repository:
 
 ```bash
+git clone https://github.com/mandel0614/circle-lang.git
+cd circle-lang
 python3 -m venv .venv
-
-# macOS / Linux
 source .venv/bin/activate
-
-# Windows PowerShell
-# .venv\Scripts\Activate.ps1
-
 python -m pip install .
-circle --version
 ```
 
----
+On Windows, create the environment with `python -m venv .venv` and activate it
+with `.venv\Scripts\Activate.ps1` in PowerShell.
 
-## Quick start
-
-Check a source program:
+Compile the example into **BioIR**, then execute it with the supplied signals:
 
 ```bash
 circle check examples/00_hello_cell.circle
-```
-
-Compile it to BioIR:
-
-```bash
-circle compile examples/00_hello_cell.circle \
-  -o runs/explorer.bioir.json
-```
-
-Execute and verify it against a scenario:
-
-```bash
+circle compile examples/00_hello_cell.circle -o runs/explorer.bioir.json
 circle verify runs/explorer.bioir.json \
   --config examples/00_signals.json \
-  -o runs/explorer.json \
-  --html runs/explorer.html
+  -o runs/explorer.json --html runs/explorer.html
 ```
 
-The resulting receipt records:
+Open `runs/explorer.html` in a browser to inspect the execution. All reports work
+offline; output directories are created automatically.
 
-* resolved program and runtime configuration;
-* seeds and execution parameters;
-* observed phenotype metrics;
-* contract results;
-* code and configuration provenance.
+| Artifact | What it contains |
+| :--- | :--- |
+| `explorer.bioir.json` | Source, declarations, selected profile, contracts, and source hash |
+| `explorer.json` | Results, contract checks, execution trace, and run provenance |
+| `explorer.html` | A visual view of the recorded execution and its evidence |
 
-The generated HTML report is self-contained and can be opened locally without
-a network connection.
+The CLI also accepts `.circle` source directly. To generate all five profile
+demonstrations and the cohesion control, run `python tools/run_examples.py`,
+then open `runs/index.html`.
 
----
+## From signals to spatial behavior
 
-## Spatial behavior
+The same language can describe a spatial objective:
 
-Circle can also describe a moving cell population:
-
-```circle
+```text
 cell Navigator {
   input attractant;
   input hazard;
@@ -144,402 +100,120 @@ cell Navigator {
 }
 ```
 
-Run five stochastic executions:
-
 ```bash
-circle run examples/01_navigation.circle \
-  --seeds 0:5 \
-  -o runs/navigation.json \
-  --html runs/navigation.html
+circle run examples/01_navigation.circle --seeds 0:5 \
+  -o runs/navigation.json --html runs/navigation.html
 ```
 
-`0:5` denotes seeds `0, 1, 2, 3, 4`.
+This executes seeds `0` through `4`. The HTML report displays the first seed's
+recorded trajectory alongside results for every seed.
 
-For the current navigation profile, Circle executes a population of 64 virtual
-cells for 190 ticks using the frozen navigation kernel associated with the
-research implementation.
+## What runs today
 
-The HTML report visualizes one execution trace, while the JSON receipt records
-metrics for every seed.
+| Profile | Program intent | Example |
+| :--- | :--- | :--- |
+| **Logic** | Respond to signals through synchronous state rules | [Signal-driven cell](examples/00_hello_cell.circle) |
+| **Navigation** | Move toward an attractant while avoiding a hazard | [Navigation](examples/01_navigation.circle) |
+| **Homeostasis** | Keep an internal state within a declared interval | [Homeostasis](examples/02_homeostasis.circle) |
+| **Composition** | Combine navigation and homeostasis under a fixed shared budget | [Composition](examples/03_composition.circle) |
+| **Cohesion** | Maintain group connectivity through interactions | [Cohesion](examples/04_cohesion.circle) |
 
-Compilation guarantees that the program can be lowered to the selected runtime
-profile. It does **not** guarantee that stochastic execution will satisfy every
-phenotype contract.
+These profiles use validated template lowering: the compiler maps supported
+source constructs to versioned reference kernels. Logic executes one abstract
+cell; the numerical profiles execute fixed 64-cell simulations. Unsupported
+syntax and profile combinations produce explicit errors. Cohesion includes
+centralized connected-component calculations.
 
----
+See the [language guide](docs/language.md) for accepted syntax and the
+[semantics](docs/semantics.md) for each profile's assumptions and limits.
 
-## Language model
-
-Circle programs describe biological behavior using a small set of declarative
-constructs.
-
-Examples include:
-
-```circle
-migrate toward attractant;
-avoid hazard;
-
-maintain internal_state near 0.5;
-
-cohere with neighbors;
-
-require target_occupancy >= 0.80;
-require overcrowding_fraction <= 0.10;
-```
-
-The language is intentionally separated from simulator-specific APIs.
-
-A source-level behavior is first represented in **BioIR** and only then lowered
-to a concrete execution profile.
+## From source to evidence
 
 ```text
-behavioral intent
-       │
-       ▼
-   Circle AST
-       │
-       ▼
-     BioIR
-       │
-       ├────────► abstract CPU runtime
-       │
-       └────────► future simulator backends
+.circle source
+      │
+      ▼
+Parse & validate ──► BioIR ──► Runtime + scenario + seeds
+                                       │
+                                       ▼
+                              Metrics & contract checks
+                                       │
+                                       ▼
+                              JSON receipt + HTML report
 ```
 
-This distinction is fundamental: runtime operations with similar names are not
-assumed to have equivalent semantics.
+**Compilation** validates a program and produces an inspectable artifact.
+**Execution** runs the selected model. **Contract checks** compare measured
+results with the requirements in the source.
 
----
+Both `circle run` and `circle verify` record contract outcomes. Use `verify`
+when those outcomes should control a script or CI job:
 
-## BioIR
+| `circle verify` exit code | Meaning |
+| :--- | :--- |
+| `0` | All requested contracts passed for the executed runs |
+| `1` | Execution completed, but at least one contract failed |
+| `2` | Invalid input or an execution error |
 
-BioIR is Circle's versioned intermediate representation for executable
-biological behavior.
-
-It records, among other information:
-
-* declared inputs and state;
-* behavioral operators;
-* phenotype contracts;
-* runtime requirements;
-* composition parameters;
-* lowering metadata;
-* provenance information.
-
-BioIR provides the boundary between the language frontend and runtime-specific
-implementations.
-
-```bash
-circle compile program.circle -o program.bioir.json
-```
-
-BioIR is designed to be inspectable and serializable rather than hidden inside
-the compiler.
-
----
-
-## Supported execution profiles
-
-Circle `0.1` intentionally supports a finite set of research-backed execution
-profiles.
-
-| Profile         | Circle constructs                          | Execution model                                               | Research lineage           |
-| --------------- | ------------------------------------------ | ------------------------------------------------------------- | -------------------------- |
-| **Logic**       | `when`, `activate`, `increase`, ...        | One abstract logical cell; synchronous fixed-point evaluation | M0.5                       |
-| **Navigation**  | `migrate toward`, `avoid`                  | 64 cells; 190 ticks; normalized 2D domain                     | M8.6 abstract R1           |
-| **Homeostasis** | `maintain`                                 | 64 independent continuous states; 200 ticks                   | M6.3                       |
-| **Composition** | Navigation + homeostasis + resource budget | 64 cells; 200 ticks; shared per-cell resource allocation      | M7.18 frozen v3            |
-| **Cohesion**    | `cohere`                                   | 64 locally interacting cells; 220 ticks                       | M9.12 / frozen M9.6 kernel |
-
-Circle `0.1` is therefore **not** an unrestricted biological-program synthesis
-system.
-
-Unsupported syntax, runtime profiles, behavior combinations, or composition
-parameters are rejected explicitly rather than silently approximated.
-
----
-
-## Composition
-
-Multiple behaviors may compete for shared execution resources.
-
-Circle exposes this explicitly rather than assuming that independently valid
-programs can always be combined.
-
-A composition may therefore require:
-
-```text
-behavior compatibility
-        +
-resource analysis
-        +
-capacity analysis
-        +
-admission
-```
-
-The current composition profile is derived from the frozen resource-aware
-linking and uncertainty-aware admission implementation used in the associated
-research program.
-
-See [Execution semantics](docs/semantics.md) for the exact model.
-
----
-
-## Verification
-
-Circle distinguishes **execution** from **verification**.
-
-```bash
-circle run program.circle
-```
-
-executes a valid program.
-
-```bash
-circle verify program.circle
-```
-
-executes the program and evaluates every declared phenotype contract.
-
-Exit codes are:
-
-| Code | Meaning                                                         |
-| ---: | --------------------------------------------------------------- |
-|  `0` | Every evaluated contract passed                                 |
-|  `1` | Execution completed, but at least one empirical contract failed |
-|  `2` | Invalid input, compilation failure, or execution error          |
-
-A program without contracts may be executed but cannot establish a phenotype
-verification result.
-
-Circle does not issue formal biological certificates. Verification results are
-empirical outcomes of the specified computational execution.
-
----
-
-## Reproducibility
-
-Circle execution receipts are intended to make computational results auditable.
-
-A receipt may include:
-
-```text
-source program
-compiler version
-BioIR version
-runtime profile
-resolved configuration
-random seed
-execution metrics
-contract results
-code provenance
-```
-
-Regression fixtures are used to detect unintended changes to frozen execution
-profiles.
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-See [Validation](docs/validation.md) for the exact reproducibility guarantees
-and their limitations.
-
----
+Run receipts retain source, artifact, configuration and implementation hashes,
+resolved settings, seeds, software versions, metrics, and a first-seed trace.
+They support replay and inspection. A passing finite simulation is empirical
+evidence under its declared conditions, not formal certification or biological
+validation.
 
 ## Documentation
 
-Start here:
+| Guide | Start here for |
+| :--- | :--- |
+| [Tutorials](docs/tutorials.md) | Running and interpreting the examples |
+| [Language](docs/language.md) | Syntax, declarations, behaviors, and contracts |
+| [Semantics](docs/semantics.md) | Logical rules and numerical profile definitions |
+| [Architecture](docs/architecture.md) | Compiler, BioIR, runtimes, and provenance |
+| [Validation](docs/validation.md) | Regression coverage and evidence boundaries |
+| [Research-driven development](docs/research-development.md) | How experiments inform the language |
 
-* **[Tutorials](docs/tutorials.md)**
-  Executable examples covering logic, navigation, homeostasis, composition,
-  and collective cohesion.
+## Developing Circle
 
-* **[Language reference](docs/language.md)**
-  Grammar, declarations, behaviors, contracts, symbols, and diagnostics.
+The architectural direction is **a small computational core, extensible
+biological domain types, layered intermediate representations, and multiple
+backends**. The cellular implementation is the starting point. Research on
+stateful neural programs and embodied virtual organisms will inform future
+semantics and backends as their execution capabilities are established.
 
-* **[Execution semantics](docs/semantics.md)**
-  Runtime equations, sampling rules, metrics, fixed parameters, and known
-  limitations.
+Each research round feeds reusable changes back into source, tests, examples,
+or documentation. Experiments preserve the exact implementation they used;
+later improvements receive their own commits. See the
+[development workflow](docs/research-development.md) and
+[round-update template](docs/round-updates/TEMPLATE.md).
 
-* **[Architecture and provenance](docs/architecture.md)**
-  Circle source → BioIR → runtime lowering → execution evidence.
-
-* **[Validation](docs/validation.md)**
-  Regression fixtures, frozen research kernels, and reproducibility scope.
-
-* **[Release procedure](RELEASING.md)**
-  Release-candidate, repository, package, and versioning workflow.
-
----
-
-## Project structure
-
-```text
-circle-lang/
-├── circle_lang/
-│   ├── frontend/
-│   ├── bioir/
-│   ├── lowering/
-│   ├── runtimes/
-│   ├── verification/
-│   └── cli.py
-│
-├── examples/
-├── docs/
-├── tests/
-├── pyproject.toml
-├── LICENSE
-└── README.md
-```
-
-The major compiler stages are:
-
-```text
-source
-  ↓
-lexer / parser
-  ↓
-AST
-  ↓
-semantic analysis
-  ↓
-BioIR
-  ↓
-profile selection
-  ↓
-runtime lowering
-  ↓
-execution
-  ↓
-phenotype verification
-```
-
----
-
-## Research scope
-
-Circle `0.1` is a **research programming language for virtual-cell systems**.
-
-The current release covers computational abstractions at three levels:
-
-* intracellular abstract state;
-* cell migration;
-* multicellular interaction.
-
-It does **not** provide:
-
-* molecular or biochemical mechanism inference;
-* genome or DNA design;
-* CRISPR design;
-* wet-lab execution;
-* experimental biological validation;
-* therapeutic prediction;
-* arbitrary tissue programming.
-
-The associated research program also contains transfer experiments using
-PhysiCell. Circle `0.1` currently distributes only the abstract CPU execution
-profiles.
-
-Passing Circle's software tests therefore demonstrates software regression
-consistency. It does not constitute a repeat of the complete research study,
-a new blind validation experiment, or experimental biological evidence.
-
----
-
-## Research provenance
-
-Circle `0.1` consolidates syntax and runtime interfaces around a set of frozen
-research implementations developed before the public language release.
-
-The unified Circle syntax is new engineering work.
-
-Accordingly, Circle `0.1` should **not** be described as the exact software
-interface used to generate every historical experiment. Instead, the release
-provides a common language and compiler frontend over research-backed execution
-profiles whose provenance is documented individually.
-
-See:
-
-* [Architecture and provenance](docs/architecture.md)
-* [Validation](docs/validation.md)
-
----
-
-## Development
-
-Research rounds feed reusable changes into Circle source, tests, examples and
-documented capabilities. See [Research-driven development](docs/research-development.md)
-for the per-round workflow and revision tracking.
-
-Run the test suite:
+For a development installation:
 
 ```bash
+python -m pip install -e .
 python -m unittest discover -s tests -v
 ```
 
-Check the CLI:
+The implementation lives in [`src/circle_lang`](src/circle_lang):
+`language.py` handles parsing and compilation, `runtime.py` dispatches execution,
+`report.py` renders reports, and `_research/` contains the adapted reference
+kernels. Contributions are welcome through
+[issues](https://github.com/mandel0614/circle-lang/issues) and pull requests.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing numerical semantics;
+release procedures are in [RELEASING.md](RELEASING.md).
 
-```bash
-circle --help
-circle --version
-```
+## Research and citation
 
-Run all examples:
+Circle accompanies the research manuscript by **Mandel Xu**:
 
-```bash
-circle check examples/00_hello_cell.circle
-circle run examples/01_navigation.circle
-```
+*Compiling High-Level Cellular Behavior Specifications into Executable
+Multiscale Virtual Cell Programs.*
 
-Development contributions should preserve:
-
-1. explicit semantics;
-2. deterministic compilation;
-3. versioned BioIR;
-4. reproducible execution receipts;
-5. explicit errors for unsupported behavior;
-6. separation between language semantics and runtime-specific implementation.
-
----
-
-## Versioning
-
-Circle uses semantic versioning for the language distribution.
-
-During the `0.x` research-preview series, syntax and BioIR may evolve between
-minor versions.
-
-BioIR documents include an explicit schema version so that incompatible
-changes can be detected rather than silently interpreted.
-
-Current candidate:
-
-```text
-Circle           0.1.0rc1
-Package          circle-lang
-Python module    circle_lang
-CLI              circle
-License          MIT
-```
-
----
-
-## Citation
-
-If you use Circle in research, please cite the accompanying LifeCompiler
-manuscript.
-
-Formal citation metadata, the permanent repository URL, and the arXiv
-identifier will be added with the public release.
-
-A `CITATION.cff` file will be included in the tagged release.
-
----
+When referring to the software, cite this
+[repository](https://github.com/mandel0614/circle-lang) with the exact commit
+or release used. For computational results, also record the runtime profile,
+configuration, seeds, and dependency versions.
 
 ## License
 
-Circle is released under the [MIT License](LICENSE).
-
-Copyright © Circle contributors.
+Circle is released under the [MIT License](LICENSE). External code, models,
+and datasets retain their respective licenses and attribution requirements.
