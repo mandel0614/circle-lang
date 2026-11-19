@@ -203,10 +203,7 @@ release procedures are in [RELEASING.md](RELEASING.md).
 
 ## Research and citation
 
-Circle accompanies the research manuscript by **Mandel Xu**:
-
-*Compiling High-Level Cellular Behavior Specifications into Executable
-Multiscale Virtual Cell Programs.*
+Circle accompanies the research manuscript by **Mandel**:
 
 When referring to the software, cite this
 [repository](https://github.com/mandel0614/circle-lang) with the exact commit
